@@ -123,7 +123,7 @@ def _save_word_note(expressions: list[dict], date_str: str) -> None:
         title_p.paragraph_format.space_before = Pt(0)
         title_p.paragraph_format.space_after  = Pt(6)
         title_r = title_p.add_run(f"📝 Daily Chinese Study Note  |  {date_str}")
-        _set_font(title_r, size=15, bold=True, color=(180, 40, 40))
+        _set_font(title_r, size=15, bold=True, color=(30, 100, 200))
 
         sub_p = doc.add_paragraph()
         sub_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -150,7 +150,7 @@ def _save_word_note(expressions: list[dict], date_str: str) -> None:
             _set_font(num_r, size=10, color=(150, 150, 150))
 
             expr_r = head_p.add_run(expression)
-            _set_font(expr_r, name="Microsoft YaHei", size=14, bold=True, color=(150, 20, 20))
+            _set_font(expr_r, name="Microsoft YaHei", size=14, bold=True, color=(20, 60, 180))
 
             pos_r = head_p.add_run(f"   [{pos}]")
             _set_font(pos_r, name="Calibri", size=9, color=(120, 120, 120))
@@ -187,9 +187,9 @@ def _save_word_note(expressions: list[dict], date_str: str) -> None:
             ex_p.paragraph_format.space_before = Pt(2)
             ex_p.paragraph_format.space_after  = Pt(2)
             ex_label = ex_p.add_run("✏️ 예문  ")
-            _set_font(ex_label, size=10, bold=True, color=(180, 40, 40))
+            _set_font(ex_label, size=10, bold=True, color=(0, 120, 80))
             ex_r = ex_p.add_run(appl_ex)
-            _set_font(ex_r, name="Microsoft YaHei", size=10.5, bold=True, color=(140, 30, 30))
+            _set_font(ex_r, name="Microsoft YaHei", size=10.5, bold=True, color=(0, 100, 60))
 
             if i < len(expressions):
                 sep_p = doc.add_paragraph()
