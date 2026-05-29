@@ -1,9 +1,30 @@
 import os
 import shutil
 import subprocess
+import sys
+import io
+
+# Fix Windows console encoding issues for emojis
+if sys.platform.startswith("win"):
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # Config
-GIT_PATH = r"C:\Program Files\Git\cmd\git.exe"
+def get_git_path():
+    git_in_path = shutil.which("git")
+    if git_in_path:
+        return git_in_path
+    
+    candidates = [
+        r"C:\Users\celeb\AppData\Local\GitHubDesktop\app-3.5.10\resources\app\git\cmd\git.exe",
+        r"C:\Program Files\Git\cmd\git.exe",
+        r"C:\Program Files (x86)\Git\cmd\git.exe",
+    ]
+    for c in candidates:
+        if os.path.exists(c):
+            return c
+    return "git"
+
+GIT_PATH = get_git_path()
 GIT_REPO_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_github_temp")
 LOCAL_STUDY_DIR = r"G:\내 드라이브\[언어 공부]\2. 중국어 암기"
 
