@@ -4,9 +4,6 @@ on:
   schedule:
     # Run at 08:00 UTC (1 hour later than English version which runs at 07:00 UTC)
     - cron: '0 8 * * 1-5'
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
