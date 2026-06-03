@@ -10,6 +10,7 @@ from utils.logger import get_logger
 from agents.scraper import scrape_all_sources
 from agents.processor import process_and_extract
 from agents.db_manager import save_expressions
+from utils.gdrive import sync_data_to_gdrive
 
 logger = get_logger('main')
 
@@ -113,6 +114,10 @@ def main() -> None:
             "status": "dry_run" if args.dry_run else "success",
         }
         update_run_log(config.RUN_LOG_FILE, run_info)
+
+        # Step 6: Sync to Google Drive Cloud
+        if not args.dry_run:
+            sync_data_to_gdrive()
 
     except Exception:
         logger.exception("🔥 Pipeline failed with unexpected error")
