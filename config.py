@@ -23,7 +23,7 @@ LOCAL_STUDY_PATH = r"G:\내 드라이브\[언어 공부]\2. 중국어 암기"
 
 # Targets
 MAX_EXPRESSIONS = 2000
-DAILY_TARGET = 100
+DAILY_TARGET = 30
 
 # Deduplication
 FUZZY_MATCH_THRESHOLD = 0.85
