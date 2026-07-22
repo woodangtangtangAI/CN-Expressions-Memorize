@@ -1,4 +1,4 @@
-import os
+﻿import os
 import json
 import time
 import re
@@ -86,7 +86,7 @@ def _build_backfill_prompt(text_chunk: str, target_count: int, avoid_expressions
 def _call_gemini(prompt: str) -> list[dict]:
     """Call the Gemini API with automatic failover across different models."""
     models_to_try = [
-        "gemini-2.5-flash",
+        "gemini-flash-latest",
         "gemini-3.5-flash",
         "gemini-flash-latest",
         "gemini-3.1-flash-lite",
